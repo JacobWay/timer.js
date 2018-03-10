@@ -138,26 +138,26 @@
 }))
 
 
-var Timer = require('./timer.js');
-var options = {
-  onstart: function(millisec) {
-    let sec = Math.round(millisec/1000);
-    console.log('??? onstart: ', sec);
-  },
-  ontick: function(millisec) {
-    let sec = Math.round(millisec/1000);
-    console.log('??? ontick: ', sec);
-  },
-  onpause: function() {
-  },
-  onstop: function() {
-  },
-  onend: function() {
-  }
-};
+//var Timer = require('./timer.js');
+//var options = {
+  //onstart: function(millisec) {
+    //let sec = Math.round(millisec/1000);
+    //console.log('??? onstart: ', sec);
+  //},
+  //ontick: function(millisec) {
+    //let sec = Math.round(millisec/1000);
+    //console.log('??? ontick: ', sec);
+  //},
+  //onpause: function() {
+  //},
+  //onstop: function() {
+  //},
+  //onend: function() {
+  //}
+//};
 
-var timer = new Timer(options);
-var duration = 3;
+//var timer = new Timer(options);
+//var duration = 3;
 
-timer.start(duration);
+//timer.start(duration);
 
