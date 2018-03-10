@@ -117,12 +117,15 @@
     clear.call(this)
     this._.status = 'stopped'
     trigger.call(this, 'onend')
+    console.log('??? 120 end duration: ', this._.duration);
   }
 
   function trigger (event) {
     var callback = this._.options[event],
       args = [].slice.call(arguments, 1)
     typeof callback === 'function' && callback.apply(this, args)
+    console.log('??? 127 trigger event: ', event);
+    console.log('??? 127 trigger callback: ', callback);
   }
 
   function clear (clearDuration) {
@@ -133,3 +136,28 @@
 
   return Timer
 }))
+
+
+var Timer = require('./timer.js');
+var options = {
+  onstart: function(millisec) {
+    let sec = Math.round(millisec/1000);
+    console.log('??? onstart: ', sec);
+  },
+  ontick: function(millisec) {
+    let sec = Math.round(millisec/1000);
+    console.log('??? ontick: ', sec);
+  },
+  onpause: function() {
+  },
+  onstop: function() {
+  },
+  onend: function() {
+  }
+};
+
+var timer = new Timer(options);
+var duration = 3;
+
+timer.start(duration);
+
